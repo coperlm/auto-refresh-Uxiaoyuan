@@ -3,8 +3,7 @@
 #include <thread>
 
 // 定义鼠标移动的两个位置
-POINT pointA = {856, 629}; // 第一个位置 (屏幕坐标)
-POINT pointB = {500, 500}; // 第二个位置 (屏幕坐标)
+ // 亲测弹窗需要点击的地方
 
 // 移动鼠标到指定位置的函数
 void moveMouseTo(POINT point) {
@@ -23,18 +22,18 @@ void leftClick() {
 }
 
 int main() {
+    POINT pointA = {856, 629};
+    std::cout << "Please input the point u wantto click.(double int,'-1' is default value)\n";
+    int a , b;std::cin >> a;
+    if( a != -1 ){
+        std::cin >> b;
+        pointA = {a, b};
+    }
     std::cout << "Mouse movement and click program started.\n";
-    
     while (true) {
-        // 移动到点 A
-        moveMouseTo(pointA);
+        moveMouseTo(pointA);// 移动到点 A
         leftClick(); // 执行左键单击
-        std::this_thread::sleep_for(std::chrono::seconds(30)); // 等待 10 秒
-
-        // 移动到点 B
-        moveMouseTo(pointB);
-        leftClick(); // 执行左键单击
-        std::this_thread::sleep_for(std::chrono::seconds(30)); // 等待 10 秒
+        std::this_thread::sleep_for(std::chrono::seconds(30*60)); // 等待 30 分钟
     }
 
     return 0;
