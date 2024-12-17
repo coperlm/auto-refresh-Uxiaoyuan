@@ -13,7 +13,7 @@
 
 以下是我的屏幕分辨率
 
-![](pics\screen resolution.png)
+![](screen resolution.png)
 
 ---
 
